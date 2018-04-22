@@ -1,2 +1,2 @@
 # GraphQL-Demo
-A 
+A sample Implementation of graphql-java server in springboot.
