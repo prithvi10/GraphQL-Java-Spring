@@ -1,0 +1,22 @@
+type Query{
+magicSchool:MagicSchool
+}
+type MagicSchool{
+name: String
+HeadMaster:String
+student(id:String):Student
+}
+type Student{
+name:String
+wand:Wand
+house:House
+}
+type House{
+name:String
+color:String
+points:Int
+}
+type Wand{
+name:String
+origin:String
+}
