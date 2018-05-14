@@ -18,4 +18,12 @@ public class StudentFetcher {
             return student;
         };
     }
+
+    /*Used by mutation*/
+    public DataFetcher putData() {
+        return environment -> {
+            /*Put the data into datastore */
+            return "Student Successfully Enrolled";
+        };
+    }
 }

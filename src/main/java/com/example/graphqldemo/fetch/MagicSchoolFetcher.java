@@ -1,7 +1,6 @@
 package com.example.graphqldemo.fetch;
 
 import graphql.schema.DataFetcher;
-import graphql.schema.DataFetchingEnvironment;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;

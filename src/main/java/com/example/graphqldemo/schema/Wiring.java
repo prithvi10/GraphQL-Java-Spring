@@ -32,6 +32,9 @@ public class Wiring {
                         .dataFetcher("wand", wandFetcher.getData())
                         .dataFetcher("house",houseFetcher.getData())
                 )
+                .type("Mutation",typeWiring -> typeWiring
+                        .dataFetcher("enrollStudent",studentFetcher.putData())
+                )
                 .build();
     }
 }
