@@ -30,7 +30,7 @@ public class GraphQLController {
         JSONObject jsonRequest = new JSONObject (request);
 
         SchemaParser schemaParser = new SchemaParser();
-        File schemaFile = new File("magicSchool.graphql");
+        File schemaFile = new File("src/main/java/com/example/graphqldemo/magicSchool.graphql");
 
         TypeDefinitionRegistry typeDefinitionRegistry =schemaParser.parse(schemaFile);
 
