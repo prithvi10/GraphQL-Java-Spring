@@ -37,7 +37,7 @@ public class GraphQLController {
 
         SchemaGenerator schemaGenerator = new SchemaGenerator();
         GraphQLSchema graphQLSchema = schemaGenerator.makeExecutableSchema(typeDefinitionRegistry, wiring.buildRuntimeWiring());
-        GraphQL build = GraphQL.newGraphQL(graphQLSchema).instrumentation(new TracingInstrumentation()).build();
+        GraphQL build = GraphQL.newGraphQL(graphQLSchema).instrumentation(new MyInstrumentation()).build();
 
         ExecutionInput executionInput=ExecutionInput.newExecutionInput().query(jsonRequest.getString("query")).build();
         ExecutionResult executionResult=build.execute(executionInput);
