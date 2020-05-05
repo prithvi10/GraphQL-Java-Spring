@@ -1,6 +1,7 @@
 package com.example.graphqldemo.schema;
 
 
+import com.example.graphqldemo.AuthDirective;
 import com.example.graphqldemo.fetch.HouseFetcher;
 import com.example.graphqldemo.fetch.MagicSchoolFetcher;
 import com.example.graphqldemo.fetch.StudentFetcher;
@@ -22,19 +23,20 @@ public class Wiring {
 
     public RuntimeWiring buildRuntimeWiring() {
         return RuntimeWiring.newRuntimeWiring()
-                .type("Query",typeWiring -> typeWiring
-                       .dataFetcher("magicSchool",magicSchoolFetcher.getData())
+                .type("Query", typeWiring -> typeWiring
+                        .dataFetcher("magicSchool", magicSchoolFetcher.getData())
                 )
                 .type("MagicSchool", typeWiring -> typeWiring
                         .dataFetcher("student", studentFetcher.getData())
                 )
-                .type("Student",typeWiring -> typeWiring
+                .type("Student", typeWiring -> typeWiring
                         .dataFetcher("wand", wandFetcher.getData())
-                        .dataFetcher("house",houseFetcher.getData())
+                        .dataFetcher("house", houseFetcher.getData())
                 )
-                .type("Mutation",typeWiring -> typeWiring
-                        .dataFetcher("enrollStudent",studentFetcher.putData())
+                .type("Mutation", typeWiring -> typeWiring
+                        .dataFetcher("enrollStudent", studentFetcher.putData())
                 )
+                .directive("auth", new AuthDirective())
                 .build();
     }
 }

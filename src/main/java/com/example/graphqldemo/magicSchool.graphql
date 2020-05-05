@@ -1,26 +1,27 @@
+directive @auth(client: String!) on FIELD_DEFINITION
 type Query{
-magicSchool:MagicSchool
+  magicSchool:MagicSchool
 }
-type MagicSchool{
+  type MagicSchool{
 name: String
-HeadMaster:String
-student(id:String):Student
+  HeadMaster:String
+student(id:String):Student @auth(client: "android")
 }
-type Student{
-name:String
-wand:Wand
-house:House
+  type Student{
+  name:String
+  wand:Wand
+  house:House
 }
-type House{
-name:String
-color:String
-points:Int
+  type House{
+  name:String
+  color:String
+  points:Int
 }
-type Wand{
-name:String
-origin:String
+  type Wand{
+  name:String
+  origin:String
 }
 
-type Mutation{
+  type Mutation{
 enrollStudent(name:String!,age:Int!): String
 }

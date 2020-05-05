@@ -1,0 +1,23 @@
+directive @auth(client: String!) on FIELD_DEFINITION
+
+
+  type Query{
+  magicSchool:MagicSchool
+  }
+  type MagicSchool{
+name: String
+  HeadMistress:String
+student(id:String):Student @auth(client: "android")
+                                           }
+                                           type Student{
+                                           name:String
+                                           wand:Wand
+                                           }
+                                           type Wand{
+                                           name:String
+                                           origin:String
+                                           }
+
+                                           type Mutation{
+enrollStudent(name:String!,age:Int!): String
+  }
